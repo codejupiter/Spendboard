@@ -2,9 +2,7 @@
 
 A high-performance spend management dashboard demonstrating sub-second interactions on 50,000+ transactions. Built with React, TypeScript, and Vite. Inspired by Ramp, Brex, and Mercury.
 
-**[Live demo ->](https://spendboard.vercel.app)** · **[30-second walkthrough ->](https://www.loom.com/share/your-loom-id)**
-
-> Note: replace the demo and Loom URLs after the Vercel deployment and walkthrough are live.
+**[Live demo ->](https://spendboard-beige.vercel.app)** · **[GitHub ->](https://github.com/codejupiter/Spendboard)**
 
 ## Screenshots
 
