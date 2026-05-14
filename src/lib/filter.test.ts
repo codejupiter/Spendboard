@@ -79,7 +79,7 @@ describe('getDateFloor', () => {
   it('returns the correct lower date bound for relative presets', () => {
     expect(getDateFloor('30d')?.toISOString()).toBe('2026-04-14T12:00:00.000Z')
     expect(getDateFloor('90d')?.toISOString()).toBe('2026-02-13T12:00:00.000Z')
-    expect(getDateFloor('ytd')?.toISOString()).toBe('2026-01-01T07:00:00.000Z')
+    expect(getDateFloor('ytd')?.toISOString()).toBe(new Date(2026, 0, 1).toISOString())
     expect(getDateFloor('all')).toBeNull()
   })
 })
