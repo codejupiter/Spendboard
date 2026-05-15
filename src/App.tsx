@@ -304,7 +304,7 @@ function App() {
   }
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-testid="spendboard-app">
       <header className="topbar">
         <div className="brand">
           <span className="brand-mark">
@@ -416,7 +416,7 @@ function App() {
           </section>
 
           <section className="table-panel" aria-label="Transactions">
-            <div className="filterbar">
+            <div className="filterbar" data-testid="filterbar">
               <label className="search-field">
                 <Search size={14} />
                 <input
@@ -513,7 +513,7 @@ function App() {
               </button>
             </div>
 
-            <div className="table-meta">
+            <div className="table-meta" data-testid="table-meta">
               <span>{numberFormatter.format(rows.length)} of {numberFormatter.format(transactions.length)} transactions</span>
               <span>{formatCompactCurrency(metrics[0].value as number)} in visible spend</span>
             </div>
@@ -559,6 +559,7 @@ function App() {
                       return (
                         <div
                           className={`table-row ${selected ? 'selected' : ''} ${focused ? 'focused' : ''}`}
+                          data-testid="transaction-row"
                           key={transaction.id}
                           onClick={(event) => handleRowClick(event, virtualRow.index, transaction)}
                           style={{ transform: `translateY(${virtualRow.start}px)` }}
@@ -612,6 +613,7 @@ function App() {
         {selectedIds.size > 0 && (
           <motion.div
             className="bulk-bar"
+            data-testid="bulk-bar"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 18 }}
@@ -715,6 +717,7 @@ function DetailDrawer({ transaction, onClose }: { transaction: Transaction | nul
           <motion.div className="drawer-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
           <motion.aside
             className="detail-drawer"
+            data-testid="detail-drawer"
             initial={{ x: 420 }}
             animate={{ x: 0 }}
             exit={{ x: 420 }}
@@ -790,6 +793,7 @@ function CommandPalette({
           <button className="command-scrim" type="button" onClick={onClose} aria-label="Close command palette" />
           <motion.div
             className="command-panel"
+            data-testid="command-palette"
             initial={{ y: -16, scale: 0.98 }}
             animate={{ y: 0, scale: 1 }}
             exit={{ y: -16, scale: 0.98 }}

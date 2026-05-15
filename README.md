@@ -30,6 +30,7 @@ It is intentionally a showcase, not a platform. No auth, no backend, no account 
 - Keyboard shortcuts for search, command palette, row movement, and detail opening
 - CSV export for the current filtered view or selected rows
 - Polished loading, empty, and error states
+- Production smoke tests for the dashboard, filters, drawer, command palette, CSV export, and layout stability
 
 ## Performance Notes
 
@@ -80,6 +81,19 @@ npm run dev
 ```
 
 Visit `http://localhost:5173`.
+
+## Verification
+
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+npx playwright install chromium
+npm run smoke
+```
+
+The smoke suite runs against the production Vite preview and covers the high-risk dashboard flows: initial 50,000-row load, search/status/saved-view filters, transaction drawer, bulk selection, command palette, CSV export, and horizontal overflow.
 
 To regenerate a larger dataset:
 
