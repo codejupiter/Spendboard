@@ -40,7 +40,7 @@ Virtualization is doing the heavy lifting for scroll performance. The table only
 
 Filtering 50k rows stays on the main thread because the dataset size does not justify worker serialization overhead. The filter pass is straightforward: normalize the query once per render, build sets for categorical filters, and return early for the cheapest checks. If this were 500k rows, I would move search and aggregation into a worker and keep the virtual table as the rendering boundary.
 
-One surprise: the chart row mattered for perceived speed. Recharts is not the bottleneck, but it is still expensive enough that the chart data is memoized from the filtered row set. That keeps typing in the search field from feeling like the whole dashboard is repainting.
+One surprise: the chart row mattered for perceived speed. Recharts is useful for summary visuals, but it is large enough that it should not block the initial table workflow. The chart row is now lazy-loaded into its own production chunk, while the derived chart data is still memoized from the filtered row set so typing in the search field does not feel like the whole dashboard is repainting.
 
 ## Architecture
 
