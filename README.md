@@ -10,6 +10,10 @@ A high-performance spend management dashboard demonstrating sub-second interacti
 ![SpendBoard dark dashboard](./docs/spendboard-dark.png)
 ![SpendBoard detail drawer](./docs/spendboard-drawer.png)
 
+## Documentation
+
+- [Architecture](./docs/ARCHITECTURE.md) — product boundary, data flow, state model, filtering/rendering strategy, performance budget, backend target, and interview talking points.
+
 ## What This Is
 
 Most spend dashboards either fake their scale with a handful of rows or buckle once a table hits real operational volume. SpendBoard renders 50,000 transactions with filtering, multi-column sorting, keyboard navigation, selection, saved views, charts, and a detail drawer while keeping the table interaction fast.
